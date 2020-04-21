@@ -6,10 +6,10 @@ import PlayerList from './components/PlayerList'
 
 //import Chart from './components/Chart'
 
-// testing jest function
-// export const add = (num1, num2) => {
-//   return num1 + num2
-// }
+//testing jest function
+export const add = (num1, num2) => {
+  return num1 + num2
+}
 
 class App extends React.Component {
   constructor() {

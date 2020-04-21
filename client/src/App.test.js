@@ -8,11 +8,11 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div)
 })
 
-// test to see if jest is working
-// test('Does add work', () => {
-//   let num1 = 3
-//   let num2 = 3
-//   let expected = 6
-//   let actual = add(num1, num2)
-//   expect(actual).toBe(expected)
-// })
+//test to see if jest is working
+test('Does add work', () => {
+  let num1 = 3
+  let num2 = 3
+  let expected = 6
+  let actual = add(num1, num2)
+  expect(actual).toBe(expected)
+})

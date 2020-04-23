@@ -4,7 +4,7 @@ import './App.scss'
 import Navbar from './components/Navbar'
 import PlayerList from './components/PlayerList'
 
-//import Chart from './components/Chart'
+import Chart from './components/Chart'
 
 //testing jest function
 export const add = (num1, num2) => {
@@ -33,7 +33,7 @@ class App extends React.Component {
       <div className="App">
         <Navbar />
         <PlayerList data={this.state.data} />
-        {/* <Chart data={this.state.data} /> */}
+        <Chart data={this.state.data} />
       </div>
     )
   }

@@ -1,39 +1,33 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 
-import { ResponsiveBubble } from '@nivo/circle-packing'
-// make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// you'll often use just a few of them.
-const Chart = (props) => (
-    {props.data.map(player=>( <ResponsiveBubble
-    root={player.searches}
-    margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
-    identity="name"
-    value="loc"
-    colors={{ scheme: 'nivo' }}
-    padding={6}
-    labelTextColor={{ from: 'color', modifiers: [['darker', 0.8]] }}
-    borderWidth={2}
-    borderColor={{ from: 'color' }}
-    defs={[
-      {
-        id: 'lines',
-        type: 'patternLines',
-        background: 'none',
-        color: 'inherit',
-        rotation: -45,
-        lineWidth: 5,
-        spacing: 8,
-      },
-    ]}
-    fill={[{ match: { depth: 1 }, id: 'lines' }]}
-    animate={true}
-    motionStiffness={90}
-    motionDamping={12}
-  />))}
-  
-)
+function Chart(props) {
+  return (
+    <AreaChart
+      width={500}
+      height={400}
+      data={props.data}
+      margin={{
+        top: 10,
+        right: 30,
+        left: 0,
+        bottom: 0,
+      }}
+    >
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip />
+      <Area
+        type="monotone"
+        dataKey="searches"
+        stroke="#8884d8"
+        fill="#8884d8"
+      />
+    </AreaChart>
+  )
+}
 
 export default Chart
+
+//data.map(e => setData([...data, {x: e.name, y: e.searches}]))
